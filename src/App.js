@@ -1,25 +1,34 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{useState} from 'react';
+import Login from "./components/Login"
+
+import DisplayTable from "./components/DisplayTable"
 import './App.css';
+import Signup from "./components/Signup"
+import Forgot from "./components/Forgot"
 
 function App() {
+const [verify,setVerify]=useState({
+  Login:true,
+  Signup:false,
+  Forgot:false,
+  Table:false
+})
+
+
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+     
+    
+   
+     {/* {verify.Login?<Login setValidate={setValidateLogin}/>:verify.Signup?<Signup/>:verify.Forgot?<Forgot/>:verify.Table?<Table/>:null} */}
+     
+     {
+     
+     verify.Login?<Login setVerify={setVerify}/>:verify.Signup?<Signup setVerify={setVerify}/>:verify.Forgot?<Forgot setVerify={setVerify}/>:<DisplayTable  setVerify={setVerify}/>}
+     
+     </>
   );
 }
 
